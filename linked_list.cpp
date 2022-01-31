@@ -212,7 +212,7 @@ struct pupil* CreateListF() {
 	fout.close();
 	cout << "\nData file has been successfully created!" << endl;
 	head = pred = pup = new pupil;
-	//Заповнення списку через утворений файл даних
+	//Filling the list through created file
 	if (pup) {
 		fin >> pup->surname;
 		fin >> pup->fname;
@@ -221,7 +221,7 @@ struct pupil* CreateListF() {
 		fin >> pup->school;
 		fin >> pup->avr;
 		fin >> pup->adr;
-		tail = pup;//обчислення хвосту(останього елементу) списку
+		tail = pup;//calculating tail(last element) of the list
 	}
 	do {
 		pup = new pupil;
@@ -236,10 +236,10 @@ struct pupil* CreateListF() {
 			if (pred) {
 				pred->next = pup;
 				pred = pup;
-				//перехід на новий елемент
+				//switching to new element
 			}
 			if (pup != NULL)
-				tail = pup;//обчислення хвосту(останього елементу) списку
+				tail = pup;//calculating tail(last element) of the list
 		}
 		l++;
 	} while (l != f);
@@ -439,7 +439,7 @@ struct pupil* PupilAdd(pupil* tail)
 	cout << "Enter the address:";
 	cin >> newel->adr;
 	cout << endl;
-	tail->next = newel; // приєднання в кінець списку
+	tail->next = newel; // connecting to the end of the list
 	g_count++;
 	newel->next = NULL;
 	return newel;
@@ -677,7 +677,7 @@ int PupilAddAndDel(pupil* tail, pupil* head) {
 	cout << "Enter the address:";
 	cin >> newel->adr;
 	cout << endl;
-	tail->next = newel; // приєднання в кінець списку
+	tail->next = newel; // connecting to the end of the list
 	g_count++;
 	newel->next = NULL;
 	cout << "The element has been successfully added!" << endl;
@@ -698,7 +698,7 @@ int PupilAddAndDel(pupil* tail, pupil* head) {
 		cin >> n;
 	}
 	els = head;
-	for (i = 0; i < g_count; i++) { //переставляем указатель на нужный элемент
+	for (i = 0; i < g_count; i++) { // replacing pointer on the needed element
 		if (n == 1)
 			break;
 		else if (n - 1 == i + 1) {
@@ -712,7 +712,7 @@ int PupilAddAndDel(pupil* tail, pupil* head) {
 		head = els->next;
 		free(els);
 		els = NULL;
-		g_count--; //уменьшаем количество
+		g_count--; //dicreasing the count
 		cout << "The element has been successfully deleted!" << endl;
 	}
 	else
